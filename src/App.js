@@ -1,12 +1,17 @@
 import React from "react";
-import Netflix from "./components/netflix";
-import DateandTime from "./components/date";
-
+import { Route, Routes } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
+import Error from "./Error";
 const App = () => {
   return (
     <>
-      <Netflix />
-      <DateandTime />
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<Error />} />
+        </Route>
+      </Routes>
     </>
   );
 };
